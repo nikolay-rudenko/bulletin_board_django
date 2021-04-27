@@ -26,3 +26,6 @@ class Rubric(models.Model):
         verbose_name = 'Category'
         ordering = ['name']
 
+    def __str__(self):
+        return self.name
+
