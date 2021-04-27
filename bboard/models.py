@@ -7,6 +7,8 @@ class Bb(models.Model):
     price = models.FloatField(null=True, blank=True)
     published = models.DateTimeField(auto_now_add=True, db_index=True)
 
+    rubric = models.ForeignKey('Rubric', null=True, on_delete=models.PROTECT, verbose_name='Category')
+
     class Meta:
         verbose_name_plural = 'Products'
         verbose_name = 'Product'
@@ -23,6 +25,4 @@ class Rubric(models.Model):
         verbose_name_plural = 'Categories'
         verbose_name = 'Category'
         ordering = ['name']
-
-#2.1
 
