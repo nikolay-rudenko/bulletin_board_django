@@ -5,10 +5,10 @@
     <title>{{ current_rubric.name }} :: Bulletin board</title>
 </head>
 <body>
-<h1>Обьявления</h1>
+{#<h1>Обьявления</h1>#}
 <h2>Обьявления: {{ current_rubric.name }}</h2>
 <div>
-    <a href="/bboard/">Главная</a>
+    <a href="{% url 'index' %}">Главная</a>
     {% for rubric in rubrics %}
         <a href="/bboard/{{ rubric.pk }}/">{{ rubric.name }}</a>
     {% endfor %}

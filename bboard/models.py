@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 class Bb(models.Model):
     title = models.CharField(max_length=50, verbose_name='Product')
@@ -30,4 +31,7 @@ class Rubric(models.Model):
         ordering = ['name']
 
 
-
+class BdForm(ModelForm):
+    class Meta:
+        model = Bb
+        fields = {'title', 'context', 'price', 'rubric'}
