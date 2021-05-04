@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Доска обьявлений :: Доска обьявлений</title>
+</head>
+<body>
+<div>
+<h1>Добавление обьявлений</h1>
+<a href="{% url 'index' %}">Главная</a>
+{% for rubic in rubics %}
+    <a href="{% url 'by_rubric' rubric.pk %}">{{ rubic.name }}</a>
+{% endfor %}
+</div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить">
+</form>
+</body>
+</html>

@@ -28,3 +28,5 @@ class BbCreateView(CreateView):
         context = super().get_context_data(**kwargs)
         context['rubrics'] = Rubric.object.all()
         return context
+
+# 2.8
