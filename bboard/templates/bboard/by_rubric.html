@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ current_rubric.name }} :: Bulletin board</title>
-</head>
-<body>
-{#<h1>Обьявления</h1>#}
-<h2>Обьявления: {{ current_rubric.name }}</h2>
-<div>
-    <a href="{% url 'index' %}">Главная</a>
-    <a href="{% url 'add' %}">Добавить</a>
+{% extends "layout/basic.html" %}
 
-    {% for rubric in rubrics %}
-        <a href="/bboard/{{ rubric.pk }}/">{{ rubric.name }}</a>
-    {% endfor %}
-</div>
-{% for bb in bbs %}
+{% block title %}{{ current_rubric.name }}{% endblock %}
+
+{% block content %}
+    {% for bb in bbs %}
     <div>
         <h2>{{ bb.title }}</h2>
         <p>{{ bb.content }}</p>
         <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
     </div>
-{% endfor %}
-</body>
-</html>
+    {% endfor %}
+{% endblock %}
